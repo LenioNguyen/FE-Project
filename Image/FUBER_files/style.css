@@ -1,0 +1,849 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    font-family:  "Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif!important;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+:root{
+    --main-color : #fe5b3d;
+    --second-color: #ffac38;
+    --text-color: #444;
+    --gradient: linear-gradient(#fe5b3d,#ffac38);
+}
+html::-webkit-scrollbar{
+    width: 0.5rem;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+section{
+    padding: 50px 100px;
+    box-sizing: border-box;
+
+}
+
+/* Style for the header */
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eeeff1;
+    padding: 15px 100px;
+}
+
+.navbar-brand img {
+    width: 40px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}x
+.navbar {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    position: relative;
+}
+.navbar-nav .nav-link {
+    color: black; /* Change text color to black */
+}
+
+.navbar a {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: black; /* Change text color to black */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--gradient);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: width 0.5s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+.header-btn button {
+    padding: 10px 20px;
+    color: var(--text-color);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-btn .sign-up {
+    background: var(--main-color);
+    border-radius: 9%;
+    margin-right: 10px;
+    color: white;
+}
+
+.header-btn .sign-in {
+    border: 2px solid var(--main-color);
+    border-radius: 9%;
+    color: var(--main-color);
+}
+
+.header-btn .sign-in:hover {
+    background: var(--main-color);
+    color: white;
+}
+
+.home{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background: url(Image/Car\ Website\ –\ 1@2x.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+.text h1{
+    font-size: 5rem;
+    letter-spacing: 2px;
+}
+.text span{
+    color: var(--main-color);
+}
+.text p {
+    margin: 00.5rem 0 1rem;
+    font-family: "Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 2rem;
+
+}
+.app-stores {
+    display: flex;
+}
+.app-stores img{
+    width: 100px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.form-container form{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 1rem;
+position: absolute;
+bottom: 4rem;
+left: 50%;
+transform: translateX(-50%);
+background: #fff;
+padding:20px;
+border-radius: 0.5rem; 
+}
+.form_container {
+    position: fixed;
+    max-width: 320px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 101;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+    }
+    .home.show .form_container {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    }
+    .signup_form {
+    display: none;
+    }
+    .form_container.active .signup_form {
+    display: block;
+    }
+    .form_container.active .login_form {
+    display: none;
+    }
+    .form_container .form_close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #0b0217;
+    font-size: 22px;
+    opacity: 0.7;
+    cursor: pointer;
+    }
+    .form_container h2 {
+    font-size: 22px;
+    color: #0b0217;
+    text-align: center;
+    }
+    .input_box {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    }
+    .input_box input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 30px;
+    color: #333;
+    transition: all 0.2s ease;
+    border-bottom: 1.5px solid #aaaaaa;
+    }
+    .input_box input:focus {
+    border-color: #7d2ae8;
+    }
+    .input_box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #707070;
+    }
+    .input_box i.email,
+    .input_box i.password {
+    left: 0;
+    }
+    .input_box input:focus ~ i.email,
+    .input_box input:focus ~ i.password {
+    color: #7d2ae8;
+    }
+    .input_box i.pw_hide {
+    right: 0;
+    font-size: 18px;
+    cursor: pointer;
+    }
+    .option_field {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .form_container a {
+    color: #7d2ae8;
+    font-size: 12px;
+    }
+    .form_container a:hover {
+    text-decoration: underline;
+    }
+    .checkbox {
+    display: flex;
+    column-gap: 8px;
+    white-space: nowrap;
+    }
+    .checkbox input {
+    accent-color: #7d2ae8;
+    }
+    .checkbox label {
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+    color: #0b0217;
+    }
+    .form_container .button {
+    background: #7d2ae8;
+    margin-top: 30px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+    }
+    .login_signup {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+    }
+.input-box{
+flex : 1 1 7rem;
+display: flex; 
+flex-direction: column;
+}
+.input-box span{
+font-weight: 500;
+}
+.input-box input{
+padding : 7px ;
+outline : none ;
+border : none ;
+background : #eeeff1;
+border-radius: 0.5rem;
+font-size: 1rem;
+}
+.form-container form .btn{
+flex : 1 1 7rem;
+padding : 10px 34px ;
+border: none ;
+border-radius: 0.5rem;
+background : #474fa0;
+color : #fff;
+font-size: 1rem ;
+}
+.form-container form .btn:hover {
+    background-color: var(--main-color);
+    box-shadow: 0px 0px 10px 5px rgba(161, 161, 161, 0.992);
+}
+.heading{
+    text-align: center;
+}
+.heading span{
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.heading h1 {
+    font-size: 2rem;
+}
+.ride-container{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit,minmax(250px,auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.ride-container .box{
+    text-align: center;
+    padding: 20px;
+}   
+.ride-container .box .bx {
+    font-size: 34px;
+    padding: 10px;
+    background: #eeeff1;
+    border-radius: 0.5rem;
+    color: var(--main-color);
+}
+.ride-container .box .h2{
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 1.4rem 0 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.ride-container .box .bx:hover, .ride-container .bx .bxs-calendar-star{
+    background: var(--gradient);
+    color: #fff;
+}
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.services-container .box{
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: 1px 4px 41px rgba(0, 0, 0, 0,1);
+}
+.services-container .box .box-img{
+    width: 100%;
+    height: 200px;
+}
+.services-container .box .box-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    object-position: center;
+}
+.services-container .box p{
+    padding: 0 10px;
+    border: 1px solid var(--text-color);
+    width: 58px;
+    border-radius: 0.5rem;
+    margin: 1rem 0 1rem;
+}
+.services-container .box h3{
+    font-weight: 500;
+}
+.services-container .box h2{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--main-color);
+    margin: 0.2rem 0 0.5rem;
+}
+.services-container .box h2 span{
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.services-container .box .btn{
+    display: flex;
+    justify-content: center;
+    background: #474fa0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 0.5rem;
+}
+.services-container .box .btn:hover{
+    background: var(--main-color);
+}
+.about-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.about-img img{
+    width: 100%;
+}
+.about-text span{
+    font-weight: 500;
+    color: var(--main-color);
+    text-transform: uppercase;
+    font-size: x-large
+}
+.about-text p{
+    margin: 0.5rem 0 1.4rem;
+    font-family: "Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: large;
+}
+.about-text .btn{
+    padding: 10px 20px;
+    background: #474fa0;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+.about-text .btn:hover{
+    background:var(--main-color);
+}
+.reviews-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.rev-img{
+    width: 70px;
+    height: 70px;
+}
+.rev-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--second-color);
+}
+.reviews-container .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 20px 15px rgba(232, 228, 228, 0.992);
+    border-radius: 0.5rem;
+}
+ .reviews-container .box h2{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.5rem;
+ }
+ .reviews-container .box p{
+    font-style: italic;
+    font-family: "Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+ }
+ .reviews-container .box .stars .bx{
+    color: var(--main-color);
+ }
+ footer{
+    width: 100%;
+    display: flex;  
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient);
+ }
+ footer .content{
+    max-width: 1350px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-grow: 1;
+ }
+ footer .content p,a{
+    color: #fff;
+ }
+ footer .content .box {
+    width: 30%;
+ }
+ footer .content .topic{
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+ }
+ footer .content .p {
+    text-align: justify;
+ }
+ footer .content .lower .topic {
+    margin: 24px 0 5px 0;
+ }
+ footer .content .lower i{
+    padding-right: 16px;
+ }
+ footer .content .middle{
+    padding-left: 80px;
+ }
+ footer .content .middle a{
+    line-height: 32px;
+ }
+ footer .content .right .email{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    color: black;
+    background: #fff;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 2px solod #222222;
+ }
+ footer .content .right  .btn{
+    height: 42px;
+    width: 100%;
+    font-size: 18px;
+    background: #eb2f06;
+    outline: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 12px;
+    border: 2px solid #eb2f06;
+    transition: all 0.3s ease-in-out;
+ }
+ footer .content .right  .btn:hover{
+    background: none;
+    color: #eb2f06;
+ }
+ footer .content .media-icons a{
+    font-size: 16px;
+    height: 45px;
+    width: 45px;
+    background: red;
+    display: inline-block;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 5px;
+    border: 2px solid #222222;
+    margin: 30px 5px 0 0;
+    transition: all 0.3 ease
+ }
+ footer .content .media-icons a:hover{
+    border: #eb2f06;
+ }
+ footer .bottom{
+    width: 30%;
+    text-align: end ;
+    color: #d9d9d9;
+    padding: 0 20px 10px 0;
+ }
+ footer .bottom a{
+    color: black;
+ }
+ footer a{
+    transition: all 0.3s ease;
+ }
+ footer a:hover{
+    color: #eb2f06;
+ }
+ @media(max-width:1100px){
+
+ }
+
+.modal .open{
+    display: flex;
+}
+.modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal-container{
+    background: #fff;
+    width: 500px;
+    min-height: 435px;
+    position: relative;
+    padding: 10px;
+    border-radius: 8px;
+}
+.modal-header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 1rem;
+        border-top-left-radius: calc(0.3rem - 1px);
+        border-top-right-radius: calc(0.3rem - 1px);
+}
+.modal-header i{
+    font:  24px normal  sans-serif   ;
+    color: #000000;
+    font-weight: 630 ;
+}
+.modal-close{
+    border-radius: 100px ;
+    font-size: 1.25rem;
+    position: absolute;
+    font-weight: 800;
+    line-height: .5;
+    color: #000;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+.modal-label{
+    display: block;
+    font-size: 15px;
+}
+.bx-low-vision:before{
+    position: absolute;
+    top: 53%;
+    right: 23px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    cursor: pointer;
+}
+.modal-input{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+.modal-forget i{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 12px;
+    color: var(--main-color);
+}
+#login{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;  
+    background: var(--main-color);
+    cursor: pointer;    
+}
+.modal-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.modal-dk a{
+    color: var(--main-color);
+}
+a.field.facebook{
+    background-color : #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 1px solid #000;
+}
+.modal-media{
+    display: flex;
+    grid-gap: 10px;
+    gap: 10px;
+    padding: 0 0 24px;
+}
+.modal-media span{
+    color: #000;
+}
+ i.facebook-icon{
+    height: 28px;
+    width: 28px;
+    color: #0171d3;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    bottom: 32px;
+}
+.facebook-icon{
+    position: absolute;
+    bottom: 9px;
+    left: 20px;
+    transform: translateY(-45%);
+}
+a.field.google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #000;
+}
+img.google-img {
+    height: 23px;
+    width: 23px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 47px;
+    left: 267px;
+    
+}
+/* Common Styles for Both Forms */
+.modal-header,
+.modal-close,
+.modal-label,
+.modal-input,
+.button,
+.modal-media,
+.modal-media span,
+.modal-dk a {
+    color: #000; /* Set text color to black */
+}
+
+/* Styles for Sign Up Form */
+.form.signup_form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.modal-close2.js-modal-close2 {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    cursor: pointer;
+    font-size: 24px;
+    color: #000;
+    
+}
+.form.signup_form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+.modal-input-register{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+.form.signup_form .modal-input-register {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.form.signup_form .modal-input-register input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form.signup_form .modal-input-register i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.form.signup_form .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form.signup_form .button:hover {
+    background-color: #0056b3;
+}
+
+.form.signup_form .modal-header-register i {
+    font-size: 24px;
+    color: #000;
+    font-weight: 630;
+}
+
+.form.signup_form .modal-media .field.google .google-img {
+    height: 23px;
+    width: 23px;
+    object-fit: cover;
+}
+
+.form.signup_form .login_signup {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.form.signup_form .login_signup a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form.signup_form .login_signup a:hover {
+    text-decoration: underline;
+}
